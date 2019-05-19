@@ -1,33 +1,25 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React from 'react';
+import { Button, View, Text } from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation'; // Version can be specified in package.json
+import MainMenu from './src/containers/MainMenu';
+import Login from './src/components/Login/Login'
 
-import React, {Component} from 'react';
-import {Platform,Button, StyleSheet, Text, View} from 'react-native';
-import ButtoSave from "./src/components/_ButtonSave";
-import LoginContainer from './src/containers/LoginContainer'
-import Styles from './src/styles/Styles';
-
-export default class App extends Component{
-  constructor(props){
-    super(props);
-    this.state={
-       name:"CLOSE"
-    }
+const RootStack = createStackNavigator(
+  {
+    Login: Login,
+    Home: MainMenu,
+  },
+  {
+    initialRouteName: 'Login',
   }
+);
+
+const AppContainer = createAppContainer(RootStack);
+
+export default class App extends React.Component {
   render() {
-    return (
-      <View>
-        <LoginContainer />
-        {/* <ButtoSave titleName={"OPEN"} colorMe={"blue"}/>
-        <ButtoSave titleName={"BACK"} colorMe={"red"}/>
-        <Button title={this.state.name}/> */}
-      </View>
-    );
+    return <AppContainer />;
   }
 }
+
 

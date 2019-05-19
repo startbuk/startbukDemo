@@ -1,6 +1,6 @@
 
 const getServer = {
-    server: 'https://siscm24x7.herokuapp.com//api/v1'
+    server: 'http://192.168.43.89:8080/api/v1'
 }
 export default class {
     static doPost(service, param, result) {
