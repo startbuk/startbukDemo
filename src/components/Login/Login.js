@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, TextInput, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity,Alert, TextInput, StyleSheet} from 'react-native';
 import Logo from './Logo';
+import Api from '../../api/Api'
 
 export default class Login extends Component{
     state = {
@@ -14,7 +15,24 @@ export default class Login extends Component{
         this.setState({ password: text })
      }
      login = (email, pass) => {
-        alert('email: ' + email + ' password: ' + pass)
+        let param={
+           username:email,
+           password:pass
+        }
+        Api.doGet('/product/',param,function(response){
+           console.log('====================================');
+           console.log(response);
+           console.log('====================================');
+            if(response.code ==200){
+               Alert.alert(
+                  'You login success'
+               )
+            }else{
+               Alert.alert(
+                  'You username or password not found !'
+               ) 
+            }
+        });
      }
     render(){
         return(
