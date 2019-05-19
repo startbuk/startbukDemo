@@ -1,10 +1,10 @@
 
-export const getServer ={
-    server:'http://192.168.43.89:8080/api/v1'
+const getServer = {
+    server: 'http://192.168.43.89:8080/api/v1'
 }
-export default class{ 
-    static doPost(service,param, result) {
-        return fetch( getServer.server + service, {
+export default class {
+    static doPost(service, param, result) {
+        return fetch(getServer.server + service, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -20,7 +20,7 @@ export default class{
                 result(response);
             });
     }
-    static doGet(service,param, result) {
+    static doGet(service, param, result) {
         return fetch(getServer.server + service, {
             method: 'GET',
             headers: {
@@ -36,7 +36,7 @@ export default class{
                 result(response);
             });
     }
-    static doPut(service,param, result) {
+    static doPut(service, param, result) {
         return fetch(getServer.server + service, {
             method: 'POST',
             headers: {
@@ -53,7 +53,7 @@ export default class{
                 result(response);
             });
     }
-    static doDelete(service,param, result) {
+    static doDelete(service, param, result) {
         return fetch(getServer.server + service, {
             method: 'POST',
             headers: {
@@ -70,5 +70,4 @@ export default class{
                 result(response);
             });
     }
-
 }
