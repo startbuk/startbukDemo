@@ -19,10 +19,7 @@ export default class Login extends Component{
            username:email,
            password:pass
         }
-        Api.doGet('/product/',param,function(response){
-           console.log('====================================');
-           console.log(response);
-           console.log('====================================');
+        Api.doPost('/user/login/',param,function(response){
             if(response.code ==200){
                Alert.alert(
                   'You login success'
