@@ -23,7 +23,7 @@ export default class App extends Component{
     return (
       <View>
         <LoginContainer />
-        <ButtoSave titleName={"BUKA SAJA"} colorMe={"red"}/>
+        <ButtoSave titleName={"BUKASAJA"} colorMe={"red"}/>
         <ButtoSave titleName={"KEMBALI"} colorMe={"blue"}/>
         <Button title={this.state.name}/>
       </View>
